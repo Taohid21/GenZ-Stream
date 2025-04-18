@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <title>Earn Points</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    #timer {
+      font-size: 2rem;
+      margin-top: 1rem;
+      color: lime;
+    }
+    iframe {
+      width: 90%;
+      height: 300px;
+      border: 2px solid #555;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>৩০ সেকেন্ড অপেক্ষা করুন</h1>
+  <p>আপনি নিচের ওয়েবসাইটটি ভিজিট করছেন...</p>
+  <div id="timer">৩০</div>
+  <iframe src="https://tinyurl.com/tinozapk" allowfullscreen></iframe>
+
+  <script>
+    let seconds = 30;
+    const timer = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+      seconds--;
+      timer.innerText = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        // ১০ পয়েন্ট মূল ট্যাবে যোগ করে
+        if (window.opener) {
+          window.opener.postMessage("earned", "*");
+          window.opener.focus();
+        }
+        alert("অভিনন্দন! আপনি ১০ পয়েন্ট অর্জন করেছেন!");
+        window.close();
+      }
+    }, 1000);
+
+    // যদি কেউ পপআপ তাড়াতাড়ি বন্ধ করে
+    window.onbeforeunload = function () {
+      if (seconds > 0) {
+        alert("কমপক্ষে ৩০ সেকেন্ড থাকতে হবে পয়েন্ট পেতে।");
+      }
+    };
+  </script>
+</body>
+</html>
