@@ -82,35 +82,45 @@
   </div>
 </section>
         <script>
-    const pointsDisplay = document.getElementById("pointsDisplay");
+  const pointsDisplay = document.getElementById("pointsDisplay");
 
-    function getPoints() {
-      return parseInt(localStorage.getItem("points") || "0");
-    }
+  function getPoints() {
+    return parseInt(localStorage.getItem("points") || "0");
+  }
 
-    function updatePointsDisplay() {
-      pointsDisplay.innerText = `Points: ${getPoints()}`;
-    }
+  function updatePointsDisplay() {
+    pointsDisplay.innerText = `Points: ${getPoints()}`;
+  }
 
-    function addPoints(amount) {
-      const newPoints = getPoints() + amount;
-      localStorage.setItem("points", newPoints);
-      updatePointsDisplay();
-    }
-
-    function startEarnFlow() {
-      const win = window.open("earn.html", "_blank");
-    }
-
-    function goToPremium(link) {
-      if (getPoints() >= 10) {
-        window.location.href = link;
-      } else {
-        alert("You need at least 10 points to access premium content.");
-      }
-    }
-
+  function addPoints(amount) {
+    const newPoints = getPoints() + amount;
+    localStorage.setItem("points", newPoints);
     updatePointsDisplay();
-  </script>
+  }
+
+  function startEarnFlow() {
+    const win = window.open("earn.html", "_blank"); // Local page
+
+    // Listen for message from earn.html
+    window.addEventListener("message", (event) => {
+      if (event.data === "earned") {
+        addPoints(10);
+        alert("অভিনন্দন! আপনি ১০ পয়েন্ট অর্জন করেছেন!");
+      } else if (event.data === "failed") {
+        alert("৩০ সেকেন্ড না থাকায় আপনি পয়েন্ট পাননি!");
+      }
+    }, { once: true });
+  }
+
+  function goToPremium(link) {
+    if (getPoints() >= 10) {
+      window.location.href = link;
+    } else {
+      alert("You need at least 10 points to access premium content.");
+    }
+  }
+
+  updatePointsDisplay();
+</script>
 </body>
 </html>
