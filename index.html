@@ -113,12 +113,18 @@
   }
 
   function goToPremium(link) {
-    if (getPoints() >= 10) {
-      window.location.href = link;
-    } else {
-      alert("You need at least 10 points to access premium content.");
-    }
+  if (getPoints() >= 10) {
+    // ১০ পয়েন্ট কেটে ফেলা
+    const newPoints = getPoints() - 10;
+    localStorage.setItem("points", newPoints);
+    updatePointsDisplay();
+
+    // পেইজে নিয়ে যাওয়া
+    window.location.href = link;
+  } else {
+    alert("প্রিমিয়াম কনটেন্ট দেখতে হলে আপনার কমপক্ষে ১০ পয়েন্ট থাকতে হবে।");
   }
+          }
 
   updatePointsDisplay();
 </script>
