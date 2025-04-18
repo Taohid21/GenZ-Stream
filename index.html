@@ -1,5 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GenZ Stream | Live Sports - Watch Movies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+  <header class="flex items-center justify-between px-4 py-3">
+    <h1 class="text-red-600 text-xl font-bold tracking-widest font-sans">GenZ Stream</h1>
+    <div class="flex items-center space-x-4">
+      <span id="pointsDisplay" class="bg-gray-800 px-3 py-1 rounded-full text-sm">Points: 0</span>
+    </div>
+  </header>  <main class="px-4 space-y-6">
+    <!-- Featured Banner -->
+    <section class="relative rounded-md overflow-hidden">
+      <img src="https://i.postimg.cc/vTcww8jG/20250418-163346.png" class="w-full object-cover rounded-md" alt="Toofan banner"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 flex flex-col justify-center px-6 space-y-4">
+        <h2 class="text-white text-2xl font-semibold">GenZ Stream Primium</h2>
+        <div class="flex space-x-3">
+          <button class="bg-orange-500 hover:bg-orange-600 transition text-white font-semibold px-5 py-2 rounded flex items-center space-x-2">
+            <i class="fas fa-coins"></i>
+            <span>0 Points</span>
+          </button>
+          <button onclick="startEarnFlow()" class="bg-red-600 hover:bg-red-700 transition text-white font-semibold px-5 py-2 rounded flex items-center space-x-2">
+            <i class="fas fa-bolt"></i>
+            <span>Earn Points</span>
+          </button>
+        </div>
+      </div>
+    </section><!-- Recently Watched -->
+<section>
+  <h3 class="text-lg font-semibold mb-3 font-sans">Free Movie</h3>
+  <div class="flex space-x-4 overflow-x-auto scrollbar-hide">
+    <a href="https://example.com/recent1" class="relative flex-shrink-0 w-48 rounded-md overflow-hidden">
+      <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fassets-prod.services.toffeelive.com%2Ff_webp%2Cw_400%2Cq_100%2FWa9nHpYBrjBfS2_RPQoQ%2Fposters%2F82a6d899-7643-4375-90d9-95c3a321db5c.png&w=1920&q=75" class="w-full h-full object-cover rounded-md" />
+    </a>
+    <a href="https://example.com/recent2" class="relative flex-shrink-0 w-48 rounded-md overflow-hidden">
+      <img src="https://toffeelive.com/_next/image?url=https%3A%2F%2Fassets-prod.services.toffeelive.com%2Ff_webp%2Cw_400%2Cq_100%2FkdQxzJUBm1RY_In718kk%2Fposters%2F6080f7b1-ace2-4417-8f28-8a5e16d6bebb.png&w=1920&q=75" class="w-full h-full object-cover rounded-md" />
+    </a>
+  </div>
+</section>
+
+<!-- Live Now -->
+<section>
+  <div class="flex justify-between items-center mb-3">
+    <h3 class="text-lg font-semibold font-sans">Live Events</h3>
+    <a href="#" class="text-red-600 font-semibold font-sans">View All</a>
+  </div>
+  <div class="flex space-x-4 overflow-x-auto scrollbar-hide">
+    <a href="https://example.com/live1" class="relative flex-shrink-0 w-48 rounded-md overflow-hidden border-2 border-lime-400">
+      <img src="https://storage.googleapis.com/a1aa/image/f2c86a12-2edf-4b64-e0cb-4584f3867c3d.jpg" class="w-full h-full object-cover rounded-md" />
+    </a>
+    <a href="https://example.com/live2" class="relative flex-shrink-0 w-48 rounded-md overflow-hidden">
+      <img src="https://storage.googleapis.com/a1aa/image/f6a62d88-bd2b-496e-de94-17207a2f0eca.jpg" class="w-full h-full object-cover rounded-md" />
+    </a>
+  </div>
+</section>
+
+<!-- Movie Premium -->
+<section>
+  <h3 class="text-lg font-semibold mb-3 font-sans">Movie Premium</h3>
+  <div class="grid grid-cols-2 gap-4">
+    <div onclick="goToPremium('https://example.com/premium1')" class="cursor-pointer relative rounded-md overflow-hidden">
+      <img src="https://storage.googleapis.com/a1aa/image/ce57c886-4388-4fac-b2f3-4a0ccd1b09fe.jpg" class="w-full h-auto object-cover rounded-md" />
+      <div class="absolute top-2 right-2 text-red-600 text-xl">
+        <i class="fas fa-crown"></i>
+      </div>
+    </div>
+    <div onclick="goToPremium('https://example.com/premium2')" class="cursor-pointer relative rounded-md overflow-hidden">
+      <img src="https://storage.googleapis.com/a1aa/image/ce57c886-4388-4fac-b2f3-4a0ccd1b09fe.jpg" class="w-full h-auto object-cover rounded-md" />
+      <div class="absolute top-2 right-2 text-red-600 text-xl">
+        <i class="fas fa-crown"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,8 +118,7 @@
           </button>
         </div>
       </div>
-    </section>
-    <!-- Recently Watched -->
+    </section><!-- Recently Watched -->
 <section>
   <h3 class="text-lg font-semibold mb-3 font-sans">New Movie</h3>
   <div class="flex space-x-4 overflow-x-auto scrollbar-hide">
@@ -85,45 +167,35 @@
 </section>
 
   </main>  <script>
-  const pointsDisplay = document.getElementById("pointsDisplay");
+    const pointsDisplay = document.getElementById("pointsDisplay");
 
-  function getPoints() {
-    return parseInt(localStorage.getItem("points") || "0");
-  }
-
-  function updatePointsDisplay() {
-    pointsDisplay.innerText = `Points: ${getPoints()}`;
-  }
-
-  function addPoints(amount) {
-    const newPoints = getPoints() + amount;
-    localStorage.setItem("points", newPoints);
-    updatePointsDisplay();
-  }
-
-  function startEarnFlow() {
-    const win = window.open("earn.html", "_blank"); // Local page
-
-    // Listen for message from earn.html
-    window.addEventListener("message", (event) => {
-      if (event.data === "earned") {
-        addPoints(10);
-        alert("অভিনন্দন! আপনি ১০ পয়েন্ট অর্জন করেছেন!");
-      } else if (event.data === "failed") {
-        alert("৩০ সেকেন্ড না থাকায় আপনি পয়েন্ট পাননি!");
-      }
-    }, { once: true });
-  }
-
-  function goToPremium(link) {
-    if (getPoints() >= 10) {
-      window.location.href = link;
-    } else {
-      alert("You need at least 10 points to access premium content.");
+    function getPoints() {
+      return parseInt(localStorage.getItem("points") || "0");
     }
-  }
 
-  updatePointsDisplay();
+    function updatePointsDisplay() {
+      pointsDisplay.innerText = `Points: ${getPoints()}`;
+    }
+
+    function addPoints(amount) {
+      const newPoints = getPoints() + amount;
+      localStorage.setItem("points", newPoints);
+      updatePointsDisplay();
+    }
+
+    function startEarnFlow() {
+      const win = window.open("https://tinyurl.com/tinozapk", "_blank");
+    }
+
+    function goToPremium(link) {
+      if (getPoints() >= 10) {
+        window.location.href = link;
+      } else {
+        alert("You need at least 10 points to access premium content.");
+      }
+    }
+
+    updatePointsDisplay();
   </script>
 </body>
 </html>
